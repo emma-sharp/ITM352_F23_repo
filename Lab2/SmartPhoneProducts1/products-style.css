@@ -1,0 +1,52 @@
+/* General */
+p {
+    width: 800px; margin: 0 auto;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+/* Typography */
+h1, h2 {
+    text-align: center;
+    font-family: 'Avenir', sans-serif;
+}
+
+/* Block styling */
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+} 
+
+/* Styling the products display */
+div { 
+
+    background-image: url('./images/phone_globe.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border: 2px;
+    padding: 2px; 
+    box-sizing: border-box; 
+    max-width: 100%; 
+}
+
+/* Form styling */
+body {
+    background-color: deepskyblue;
+}
+
+body div {
+    border: 5px solid black;
+    display: flex;
+}
