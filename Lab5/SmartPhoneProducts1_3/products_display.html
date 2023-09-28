@@ -13,13 +13,22 @@
         const store_name = 'Emma Sharp'; 
         let hits = 0;
         let spins = 0;
+         /* const first_name = 'Emma'; */
+         /* const last_name = 'Sharp'; */
+        const first_name = 'Emma';
+        const last_name = 'Sharp';
+
     </script>
 </head>
 
 <body>
     
     <header>
-        <h1> <script>document.write(store_name);</script>'s Used Smart Phone Store</h1>
+        <h1><script>
+            document.write( 
+                           "<span style='font-weight: bold;font-size: 120px;'>" + first_name + "</span> " +
+                           "<span style='font-size: 110px; font-style: italic;'>" + last_name + "</span></span>");
+        </script> 's Used Smart Phone Store</h1>
 
         <p style="text-align: center; font-weight: bold;">
             Hits:<span id="hits_span">0</span>
@@ -100,9 +109,20 @@
         </main>
     </div>
     <footer>
-        <h1>
-            Your One Stop For Used Phones :)
-        </h1>
+        <script>
+            let line =1;
+            const now= new Date();
+            const hours = now.getHours();
+           
+            document.write(`
+                <table border="1" style="margin-left: auto; margin-right: auto; text-align: center;">
+                    <tr><th colspan="2"><h1>Your One Stop For Used Phones - ${first_name[0].toUpperCase()}.${last_name[0].toUpperCase()}.'s</h1></th></tr>
+                    <tr><td> 1. </td><td><br />Copyright @ ${first_name} ${last_name}</td></tr>
+                    <tr><td> 2. </td><td>${now.getFullYear()}</td></tr>
+                    <tr><td> 3. </td><td>${((hours + 11) % 12 + 1)}:${(now.getMinutes() < 10 ? '0' : '') + now.getMinutes()} ${(hours < 12) ? 'AM' : 'PM'}</td></tr>
+                </table>
+            `);
+        </script>
     </footer>
 </body>
 
