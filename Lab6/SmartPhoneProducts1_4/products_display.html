@@ -14,6 +14,7 @@
         let hits = 0;
         let spins = 0;
         let over_half = false;
+        let progress = 'pending...';
     </script>
 </head>
 
@@ -47,6 +48,63 @@
                     hits_span.innerHTML = ++hits;
                 } else {
                     this.className = 'item rotate'
+                }         
+            // -- Winning progress depends on hits/spins
+                hits_spins_ratio = hits/spins;
+                if ( hits_spins_ratio > 0 ) {
+                     progress = 'On your way!';
+                         if ( hits_spins_ratio >= 0.25 ) {
+                             progress = 'Almost there!';
+                                 if ( hits_spins_ratio >= 0.5 ) {
+                                     if( hits < spins) { 
+                                         progress = 'You win!';
+                                     }
+                                }
+                             }
+                        }
+                else {
+                    progress = 'Get going!' ;
+                }
+                hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
+                win_span.innerHTML = progress;"
+            onmouseover="
+                if(!this.className.includes('rotate')) {
+                    this.className = 'item rotate';
+                    spins_span.innerHTML = ++spins; 
+                }
+            // -- Winning progress depends on hits/spins
+                hits_spins_ratio = hits/spins;
+                if ( hits_spins_ratio > 0 ) {
+                     progress = 'On your way!';
+                         if ( hits_spins_ratio >= 0.25 ) {
+                             progress = 'Almost there!';
+                                 if ( hits_spins_ratio >= 0.5 ) {
+                                     if( hits < spins) { 
+                                         progress = 'You win!';
+                                     }
+                                }
+                             }
+                        }
+                else {
+                    progress = 'Get going!' ;
+                }
+                hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
+                over_half |= (spins < 2*hits) && (hits < spins);
+                win_span.innerHTML = progress;"
+            >
+                
+                <h2>HTC</h2>
+                <p>$40.00</p>
+                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg" alt="HTC Phones">
+            </section>
+
+            <section class="item" 
+            onclick="
+                if (this.className === 'item rotate') {
+                    this.className = 'item';
+                    hits_span.innerHTML = ++hits;
+                } else {
+                    this.className = 'item rotate'
                 }                
                 hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
                 over_half ||= (spins < 2*hits) && (hits < spins);
@@ -60,26 +118,6 @@
                 over_half |= (spins < 2*hits) && (hits < spins);
                 win_span.innerHTML = over_half;"
             >
-                
-                <h2>HTC</h2>
-                <p>$40.00</p>
-                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg" alt="HTC Phones">
-            </section>
-
-            <section class="item" 
-            onclick="
-                this.className = 'item';
-                hits_span.innerHTML = ++hits; 
-                hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
-                over_half ||= (spins < 2*hits) && (hits < spins);
-                win_span.innerHTML = over_half;"
-            onmouseover="
-                this.className = 'item rotate';
-                spins_span.innerHTML = ++spins;
-                hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
-                over_half |= (spins < 2*hits) && (hits < spins);
-                win_span.innerHTML = over_half;"
-            >
                 <h2>Apple</h2>
                 <p>$75.00</p>
                 <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg">
@@ -87,17 +125,23 @@
 
             <section class="item" 
             onclick="
+            if (this.className === 'item rotate') {
                 this.className = 'item';
-                hits_span.innerHTML = ++hits; 
-                hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
-                over_half ||= (spins < 2*hits) && (hits < spins);
-                win_span.innerHTML = over_half;"
-            onmouseover="
+                hits_span.innerHTML = ++hits;
+            } else {
+                this.className = 'item rotate'
+            }                
+            hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
+            over_half ||= (spins < 2*hits) && (hits < spins);
+            win_span.innerHTML = over_half;"
+        onmouseover="
+            if(this.className === 'item') {
                 this.className = 'item rotate';
-                spins_span.innerHTML = ++spins;
-                hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
-                over_half |= (spins < 2*hits) && (hits < spins);
-                win_span.innerHTML = over_half;"
+                spins_span.innerHTML = ++spins; 
+            }
+            hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
+            over_half |= (spins < 2*hits) && (hits < spins);
+            win_span.innerHTML = over_half;"
             >
                 <h2>Nokia</h2>
                 <p>$35.00</p>
@@ -106,14 +150,20 @@
 
             <section class="item" 
             onclick="
-                this.className = 'item';
-                hits_span.innerHTML = ++hits; 
+                if (this.className === 'item rotate') {
+                    this.className = 'item';
+                    hits_span.innerHTML = ++hits;
+                } else {
+                    this.className = 'item rotate'
+                }                
                 hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
                 over_half ||= (spins < 2*hits) && (hits < spins);
                 win_span.innerHTML = over_half;"
             onmouseover="
-                this.className = 'item rotate';
-                spins_span.innerHTML = ++spins;
+                if(this.className === 'item') {
+                    this.className = 'item rotate';
+                    spins_span.innerHTML = ++spins; 
+                }
                 hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
                 over_half |= (spins < 2*hits) && (hits < spins);
                 win_span.innerHTML = over_half;"
@@ -125,14 +175,20 @@
 
             <section class="item" 
             onclick="
-                this.className = 'item';
-                hits_span.innerHTML = ++hits; 
+                if (this.className === 'item rotate') {
+                    this.className = 'item';
+                    hits_span.innerHTML = ++hits;
+                } else {
+                    this.className = 'item rotate'
+                }                
                 hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
                 over_half ||= (spins < 2*hits) && (hits < spins);
                 win_span.innerHTML = over_half;"
             onmouseover="
-                this.className = 'item rotate';
-                spins_span.innerHTML = ++spins;
+                if(this.className === 'item') {
+                    this.className = 'item rotate';
+                    spins_span.innerHTML = ++spins; 
+                }
                 hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
                 over_half |= (spins < 2*hits) && (hits < spins);
                 win_span.innerHTML = over_half;"
