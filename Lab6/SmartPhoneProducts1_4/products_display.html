@@ -74,20 +74,19 @@
                 }
             // -- Winning progress depends on hits/spins
                 hits_spins_ratio = hits/spins;
-                if ( hits_spins_ratio > 0 ) {
-                     progress = 'On your way!';
-                         if ( hits_spins_ratio >= 0.25 ) {
-                             progress = 'Almost there!';
-                                 if ( hits_spins_ratio >= 0.5 ) {
-                                     if( hits < spins) { 
-                                         progress = 'You win!';
-                                     }
-                                }
-                             }
-                        }
-                else {
-                    progress = 'Get going!' ;
-                }
+
+            if (hits_spins_ratio > 0) {
+                 if (hits_spins_ratio >= 0.5 && hits < spins) {
+                     progress = 'You win!';
+             } else if (hits_spins_ratio >= 0.25) {
+                     progress = 'Almost there!';
+             } else {
+                 progress = 'On your way!';
+             }
+            } else {
+                progress = 'Get going!';
+            }
+
                 hits_spin_span.innerHTML = (hits_span.innerHTML/spins_span.innerHTML).toFixed(2);
                 over_half |= (spins < 2*hits) && (hits < spins);
                 win_span.innerHTML = progress;"
@@ -218,5 +217,37 @@
         </h1>
     </footer>
 </body>
+
+<script>
+// Extra Credit 
+let month = "January"; // Replace this with the desired month
+let num_days;
+
+switch (month) {
+    case "January":
+    case "March":
+    case "May":
+    case "July":
+    case "August":
+    case "October":
+    case "December":
+        num_days = 31;
+        break;
+    case "April":
+    case "June":
+    case "September":
+    case "November":
+        num_days = 30;
+        break;
+    case "February":
+        num_days = 28;
+        break;
+    default:
+        console.error("Invalid month input");
+        num_days = -1;
+        break;
+}
+console.log(`The number of days in ${month} is ${num_days}`);
+</script>
 
 </html>
