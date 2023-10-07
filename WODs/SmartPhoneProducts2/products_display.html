@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Smart Phone Store</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
+
+    <link href="products-style.css" rel="stylesheet">
+
+    <script>
+     let num_items = 5;
+
+     let name1 = "HTC";
+     let price1 = 40.00;
+     let image1 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg";
+
+     let name2 = "Apple";
+     let price2 = 75.00;
+     let image2 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg";
+
+     let name3 = "Nokia";
+     let price3 = 35.00;
+     let image3 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg";
+
+     let name4 = "Samsung";
+     let price4 = 45.00;
+     let image4 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg";
+
+     let name5 = "Blackberry";
+     let price5 = 10.00;
+     let image5 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg";
+    </script>
+</head>
+
+<body>
+    
+    <header>
+        <h1>Emma's Used Smart Phone Store</h1>
+    </header>
+    <div>
+        <aside>
+            <div style="font-size:4rem;text-align:center;font-weight: bold;font-style: italic; color: white">
+                We sell from
+                around the globe!
+            </div>
+        </aside>
+
+        <main>
+
+            <script>
+                for (i = 1; eval("typeof name"+i) != 'undefined'; i++) {
+                    document.write(`
+                        <section class="item">
+                        <h2>${eval("name" + i)}</h2>
+                        <p>$${eval("price" + i)}</p>
+                        <img src="${eval("image" + i)}">
+                     </section> `);
+                    }
+            </script>
+
+            <script>
+                // JavaScript function to change the className property
+                function rotateSection(element) {
+                    element.className = 'item rotate';
+                }
+                // JavaScript function to change the className property to 'item'
+                function stopRotation(element) {
+                element.className = 'item';
+                }
+            </script>
+
+        </main>
+    </div>
+    <footer>
+        <h1>
+            Your One Stop For Used Phones :)
+        </h1>
+    </footer>
+</body>
+
+</html>
