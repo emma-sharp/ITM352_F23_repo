@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        td:hover {
+            background-color: chartreuse;
+        }
+        td {
+            height: 25px;
+            width: 20px;
+            text-align: center;
+            cursor: cell;
+            border: 1px solid black; /* Add border for better visualization */
+        }
+        #status_div {
+            font-weight: bold;
+        }
+    </style>
+    <title>Tic-Tac-Toe</title>
+</head>
+<body>
+    <script>
+        // Create a 3x3 Tic-Tac-Toe array with "-" values
+        const TicTacToe = [
+            ['-', '-', '-'],
+            ['-', '-', '-'],
+            ['-', '-', '-']
+        ];
+
+        // Create an HTML table to display the Tic-Tac-Toe array
+        let table = '<table style="border-collapse: collapse;">';
+        for (let i = 0; i < TicTacToe.length; i++) {
+            table += '<tr>';
+            for (let j = 0; j < TicTacToe[i].length; j++) {
+                table += `<td onclick="makeMove(this, ${i}, ${j})">${TicTacToe[i][j]}</td>`;
+            }
+            table += '</tr>';
+        }
+        table += '</table>';
+
+        // Add a div for status display
+        table += '<div id="status_div">X goes first</div>';
+
+        // Display the HTML table
+        document.write(table);
+
+        // Game variables
+        const marks = ["X", "O"];
+        let move_num = 0;
+
+        // Winning combinations
+        const winPatterns = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        // Prioritize moves in this order: center, corners, edges
+        const moveOrder = [[1, 1], [0, 0], [0, 2], [2, 0], [2, 2], [0, 1], [1, 0], [1, 2], [2, 1]];
+
+        function makeMove(cell, row, col) {
+            if (cell.innerHTML === '-' && !checkForWin()) {
+                cell.innerHTML = marks[move_num % 2];
+                TicTacToe[row][col] = marks[move_num % 2];
+                move_num++;
+                document.getElementById('status_div').innerHTML = `${marks[move_num % 2]}'s turn`;
+
+                if (!checkForWin() && move_num % 2 === 1) { // If it's the computer's turn
+                    makeComputerMove();
+                }
+            }
+        }
+
+        function makeComputerMove() {
+            // Check for a winning move for "O"
+            for (let i = 0; i < TicTacToe.length; i++) {
+                for (let j = 0; j < TicTacToe[i].length; j++) {
+                    if (TicTacToe[i][j] === '-') {
+                        TicTacToe[i][j] = marks[1];
+                        if (checkForWin()) {
+                            updateCell(i, j, marks[1]);
+                            return;
+                        }
+                        TicTacToe[i][j] = '-';
+                    }
+                }
+            }
+
+            // Check for a blocking move for "X"
+            for (let i = 0; i < TicTacToe.length; i++) {
+                for (let j = 0; j < TicTacToe[i].length; j++) {
+                    if (TicTacToe[i][j] === '-') {
+                        TicTacToe[i][j] = marks[0];
+                        if (checkForWin()) {
+                            updateCell(i, j, marks[1]);
+                            return;
+                        }
+                        TicTacToe[i][j] = '-';
+                    }
+                }
+            }
+
+            // Make a prioritized move
+            for (let i = 0; i < moveOrder.length; i++) {
+                const [row, col] = moveOrder[i];
+                if (TicTacToe[row][col] === '-') {
+                    updateCell(row, col, marks[1]);
+                    if (!checkForWin()) {
+                        document.getElementById('status_div').innerHTML = `${marks[move_num % 2]}'s turn`;
+                    }
+                    return;
+                }
+            }
+        }
+
+        function checkForWin() {
+            const board_str = TicTacToe.map(row => row.join('')).join('');
+
+            for (const pattern of winPatterns) {
+                const [a, b, c] = pattern;
+                if (board_str[a] === board_str[b] && board_str[b] === board_str[c] && board_str[a] !== '-') {
+                    displayGameResult(`${board_str[a]} wins!`);
+                    return true;
+                }
+            }
+
+            if (move_num === 9) {
+                displayGameResult("It's a draw!");
+                return true;
+            }
+
+            return false;
+        }
+
+        function updateCell(row, col, mark) {
+            const cell = document.getElementsByTagName('td')[row * 3 + col];
+            cell.innerHTML = mark;
+            TicTacToe[row][col] = mark;
+            move_num++;
+        }
+
+        function displayGameResult(result) {
+            document.getElementById('status_div').innerHTML = result;
+        }
+    </script>
+</body>
+</html>

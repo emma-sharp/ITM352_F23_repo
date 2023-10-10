@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let product_quantities = [1, 2, 3, 4, 5];
+        let products = [
+            { 'name': 'small gumball', 'price': 0.02 },
+            { 'name': 'medium gumball', 'price': 0.05 },
+            { 'name': 'large gumball', 'price': 0.07 },
+            { 'name': 'small jawbreaker', 'price': 0.06 },
+            { 'name': 'large jawbreaker', 'price': 0.10 }
+        ];
+    </script>
+    <table style="border: 1px solid black; text-align: center;">
+        <tr style="border: 1px solid black;">
+            <th style="border: 1px solid black;">Product #</th>
+            <th style="border: 1px solid black;">Product Name</th>
+            <th style="border: 1px solid black;">Quantity</th>
+            <th style="border: 1px solid black;">Price</th>
+            <th style="border: 1px solid black;">Extended Cost</th>
+        </tr>
+        <script>
+            for (let i in product_quantities) {
+                let product = products[i];
+                let productNumber = Number(i) + 1;
+                let quantity = product_quantities[i];
+                let price = product.price;
+                let extendedCost = quantity * price;
+
+                document.write(`
+                    <tr style="border: 1px solid black;">
+                        <td style="border: 1px solid black;">${productNumber}</td>
+                        <td style="border: 1px solid black;">${product.name}</td>
+                        <td style="border: 1px solid black;">${quantity}</td>
+                        <td style="border: 1px solid black;">$${price.toFixed(2)}</td>
+                        <td style="border: 1px solid black;">$${extendedCost.toFixed(2)}</td>
+                    </tr>
+                `);
+            }
+        </script>
+    </table>
+</body>
+</html>

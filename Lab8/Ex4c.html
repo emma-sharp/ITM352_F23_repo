@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4c</title>
+    <style>
+        tr:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let product_quantities = [1, 2, 3, 4, 5];
+        let products = [
+            { 'name': 'small gumball', 'price': 0.02 },
+            { 'name': 'medium gumball', 'price': 0.05 },
+            { 'name': 'large gumball', 'price': 0.07 },
+            { 'name': 'small jawbreaker', 'price': 0.06 },
+            { 'name': 'large jawbreaker', 'price': 0.10 }
+        ];
+
+        // Define the addNewRow function here
+        function addNewRow() {
+            let table = document.getElementById('invoice_table');
+
+            // Clone the template row to create a new row
+            let newRow = table.rows[1].cloneNode(true);
+
+            // Modify the content of the new row (customize as needed)
+            let numRows = table.rows.length;
+            newRow.cells[0].innerHTML = numRows;  // Product #
+            newRow.cells[1].innerHTML = 'New Product'; // Product Name
+            newRow.cells[2].innerHTML = '0'; // Quantity
+            newRow.cells[3].innerHTML = '$0.00'; // Price
+            newRow.cells[4].innerHTML = '$0.00'; // Extended Cost
+
+            // Append the new row to the table
+            table.appendChild(newRow);
+        }
+
+        // This function deletes the clicked row
+        function deleteRow(rowIndex) {
+            let table = document.getElementById('invoice_table');
+            table.deleteRow(rowIndex);
+        }
+
+        // Attach the deleteRow function to each row's onclick
+        let rows = document.getElementById('invoice_table').rows;
+        for (let i = 1; i < rows.length; i++) {
+            rows[i].onclick = function() {
+                deleteRow(this.rowIndex);
+            };
+        }
+    </script>
+    <table style="border: 1px solid black; text-align: center;" id="invoice_table">
+        <tr style="border: 1px solid black;">
+            <th style="border: 1px solid black;">Product #</th>
+            <th style="border: 1px solid black;">Product Name</th>
+            <th style="border: 1px solid black;">Quantity</th>
+            <th style="border: 1px solid black;">Price</th>
+            <th style="border: 1px solid black;">Extended Cost</th>
+        </tr>
+        <!-- Initial row serving as a template -->
+        <tr>
+            <td>1</td>
+            <td>Template Product</td>
+            <td>0</td>
+            <td>$0.00</td>
+            <td>$0.00</td>
+        </tr>
+    </table>
+    <input type="button" value="Add New Row" onclick="addNewRow()">
+</body>
+</html>
