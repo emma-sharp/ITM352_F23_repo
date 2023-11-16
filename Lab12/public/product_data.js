@@ -1,5 +1,4 @@
-
-let products = 
+products = 
 [
     {
     "brand": "HTC",
