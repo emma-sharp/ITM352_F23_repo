@@ -155,3 +155,13 @@ html {
       
   }
 
+/* Purchase button centering*/
+.button-container {
+  text-align: center;
+}
+
+/* Optional: Center the button-container itself if it's not full width */
+.button-container {
+  width: 100%; /* or a fixed width */
+  margin: 0 auto; /* centers the container */
+}

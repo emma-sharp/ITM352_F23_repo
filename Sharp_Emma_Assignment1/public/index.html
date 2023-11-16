@@ -46,7 +46,6 @@
     }
 </script>
 
-
 <!DOCTYPE html>
 <html>
 
@@ -66,7 +65,7 @@
 </head>
 
 <body>
-    <form name="product_selection_form" action="" method="GET">
+    <form name="product_selection_form" action="" method="GET"></form>
         <header>
             <h1>Welcome to Our Surfboard Store</h1>
          </header>    
@@ -87,30 +86,20 @@
 
     <div>
         <main>
-            <script>
-                for (i = 0; i < products.length; i++) {
-                    document.write(`
-                        <section class="item">
-                            <h2>${products[i].brand}</h2>
-                            <h3>${products[i].quantity_avail} available</h3>
-                            <p>$${products[i].price}</p>
-                            <label id="quantity${i}_label"}">Quantity</label>
-                            <input type="text" placeholder="0" name="quantity${i}" 
-                            onkeyup="checkQuantityTextbox(this);">
-                            <img src="${products[i].image}">
-                        </section>
-                    `);
-                }    
-            </script>
+            
         </main>
     </div>
     <footer>
         <h1>
             The Best Used Surfboards In Town!
         </h1>
-        <input type="submit" value="Purchase!" name="purchase_submit">
+        <div class="button-container">
+            <input type="submit" value="Purchase!" name="purchase_submit">
+        </div>
+        
     </footer>
-</form>
 </body>
 
 </html>
+
+
