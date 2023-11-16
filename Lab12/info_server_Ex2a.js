@@ -1,7 +1,6 @@
 const express = require('express');
-const { products } = require('./public/product_data');
 const app = express();
-require(__dirname + "/public/product_data.js");
+var product_data = require(__dirname + "/public/product_data.json");
 
 
 app.use(express.urlencoded({ extended: true }));
