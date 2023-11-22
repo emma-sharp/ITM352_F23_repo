@@ -1,0 +1,5 @@
+{
+    "dport": {"name": "Dan Port", "password": "portspassword", "email": "dport@hawaii.edu"},
+    "esharp": {"name": "Emma Sharp", "password": "!student!", "email": "esharp@hawaii.edu"},
+    "itm352": {"name": "ITM 352", "password": "grader", "email": "itm352@hawaii.edu"}
+    }

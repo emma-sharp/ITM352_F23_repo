@@ -5,6 +5,17 @@ const qs = require('querystring');
 
 app.use(express.urlencoded({ extended: true }));
 
+// load user_data.json file and save the object in a users_reg_data variable
+const fs = require('fs');
+let user_data_filename = 'user_data.json';
+
+// let user_reg_data = require('./user_data.json');
+let user_reg_data_JSON = fs.readFileSync(user_data_filename, 'utf-8');
+let user_reg_data = JSON.parse(user_reg_data_JSON);
+
+// console.log(user_reg_data_JSON);
+console.log(user_reg_data['esharp'].password);
+
 // next 3 lines of code from Professor Port
 app.get("/test", function (request, response) {
    response.status(200).send(products);
@@ -16,6 +27,19 @@ app.get("/product_data.js", function (request, response, next) {
    let products_str = `var products = ${JSON.stringify(product_data)};`;
    response.send(products_str);
 });
+
+// Handling login data
+app.post("/login", function (request, response) {
+   // For now, just send back the data received
+   response.send(request.body);
+});
+
+// Add the registration route here
+app.post("/register", function (request, response) {
+   // For now, just send back the data received
+   response.send(request.body);
+});
+
 
 app.post("/purchase", function (request, response) {
    console.log(request.body);
