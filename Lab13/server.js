@@ -3,7 +3,7 @@ const app = express();
 
 const fs = require('fs');
 let user_reg_data = {};
-let user_data_filename = __dirname + 'user_data.json';
+let user_data_filename = __dirname + '/user_data.json';
 // if the user data file exists, read it and parse it
 if(fs.statSync(user_data_filename)) {
     // get the filesize and print it out 
@@ -50,5 +50,34 @@ app.post("/login", function (request, response) {
     }
 
 });
+
+// on assignment2, maybe do a post to process.registration instead or something 
+app.get("/register", function (request, response) {
+    // Give a simple register form
+    str = `
+<body>
+<form action="" method="POST">
+<input type="text" name="username" size="40" placeholder="enter username" ><br />
+<input type="password" name="password" size="40" placeholder="enter password"><br />
+<input type="password" name="repeat_password" size="40" placeholder="enter password again"><br />
+<input type="email" name="email" size="40" placeholder="enter email"><br />
+<input type="submit" value="Submit" id="submit">
+</form>
+</body>
+    `;
+    response.send(str);
+ });
+
+ app.post("/register", function (request, response) {
+    // process a simple register form
+    // make a new user 
+    let username = request.body.username; //convert to upper or lower case here
+    user_reg_data[username] = {};
+    user_reg_data[username].password = request.body.password;
+    user_reg_data[username].email = request.body.email;
+    // add it to the user_data.json file 
+    fs.writeFileSync(user_data_filename, JSON.stringify(user_reg_data));
+
+ });
 
 app.listen(8080, () => console.log(`listening on port 8080`));
