@@ -69,15 +69,30 @@ app.get("/register", function (request, response) {
  });
 
  app.post("/register", function (request, response) {
-    // process a simple register form
-    // make a new user 
-    let username = request.body.username; //convert to upper or lower case here
-    user_reg_data[username] = {};
-    user_reg_data[username].password = request.body.password;
-    user_reg_data[username].email = request.body.email;
-    // add it to the user_data.json file 
-    fs.writeFileSync(user_data_filename, JSON.stringify(user_reg_data));
+    // Retrieve form data
+    let username = request.body.username; // Consider converting to lowercase for consistency
+    let password = request.body.password;
+    let repeat_password = request.body.repeat_password;
+    let email = request.body.email;
 
- });
+    // Check if username exists and passwords match
+    if (!user_reg_data.hasOwnProperty(username) && password === repeat_password) {
+        // Username does not exist and passwords match, proceed to save new user
+        user_reg_data[username] = {
+            password: password,
+            email: email
+        };
+
+        // Write to user_data.json file
+        fs.writeFileSync(user_data_filename, JSON.stringify(user_reg_data));
+
+        // Redirect to a success page or login page (as per your application flow)
+        response.send(`${username} is registered successfully!`);
+    } else {
+        // Username exists or passwords do not match, redirect to register page
+        response.redirect('/register');
+    }
+});
+
 
 app.listen(8080, () => console.log(`listening on port 8080`));
