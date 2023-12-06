@@ -1,3 +1,8 @@
+/** 
+ * Functions for /invoice.html
+ * Author - Emma Sharp
+ */
+
 function generateInvoice(product_array) {
     parent = document.getElementById("invoice-table");
     subtotal = 0;

@@ -1,3 +1,8 @@
+/** 
+ * Functions for /products_display.html
+ * Author - Emma Sharp
+ */
+
 function createGrid() {
     var display_grid = document.getElementById("display_grid");
     var numberOfRows = Math.ceil(products.length / 3);
@@ -34,7 +39,7 @@ function populateItems() {
                 <p>${products[i].description}</p>
             </div>
             <label id="product-input-${i}-label">Quantity: </label>
-            <input id="product-input-${i}" type="text" value="0" name="product${i}" onkeyup="checkQuantityTextbox(this, ${products[i].quantity_available})"></input>
+            <input id="product-input-${i}" type="text" value="${ store_params.has('product0')  ? store_params.get('product' + i) : 0}" name="product${i}" onkeyup="checkQuantityTextbox(this, ${products[i].quantity_available})"></input>
         `
     }
 
@@ -43,5 +48,12 @@ function populateItems() {
             <button type="submit" id="purchase-button" name="purchase_submit" class="btn btn-primary" value="Purchase">Purchase</button>
         </div>
     `
-
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (params.has("submit")) {
+        document.getElementById("product_selection_form").submit();
+    }
+})
+
+let store_params = (new URL(document.location)).searchParams;

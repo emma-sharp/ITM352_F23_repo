@@ -1,5 +1,1 @@
-{
-    "dport": {"name": "Dan Port", "password": "portspassword", "email": "dport@hawaii.edu"},
-    "esharp": {"name": "Emma Sharp", "password": "!student!", "email": "esharp@hawaii.edu"},
-    "itm352": {"name": "ITM 352", "password": "grader", "email": "itm352@hawaii.edu"}
-    }
+{"itm352":{"name":"Itm Grader","password":"cb8ef6444b43f18fedf1f8347c5cd667f442473878cc1c9547f74564ed6f865d","email":"itm352@hawaii.edu"},"fake":{"name":"Fake Account","password":"a109e36947ad56de1dca1cc49f0ef8ac9ad9a7b1aa0df41fb3c4cb73c1ff01ea","email":"fake@mail.com"},"mail":{"name":"Test McTest","password":"a109e36947ad56de1dca1cc49f0ef8ac9ad9a7b1aa0df41fb3c4cb73c1ff01ea","email":"mail@mail.com"},"maisl":{"name":"Test McTest","password":"a109e36947ad56de1dca1cc49f0ef8ac9ad9a7b1aa0df41fb3c4cb73c1ff01ea","email":"maisl@mail.com"}}

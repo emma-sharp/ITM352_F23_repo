@@ -1,3 +1,8 @@
+/** 
+ * Functions for product validation
+ * Author - Emma Sharp
+ */
+
 let globalErrors = [];
 // function for validating whether an input is a valid number
 function isNonNegIntAndStock(value, stock, return_errors = false) {
