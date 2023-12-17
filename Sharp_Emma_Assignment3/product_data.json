@@ -1,0 +1,156 @@
+{
+    "boards": [
+        {
+            "name": "Classic Shortboard",
+            "type": "Shortboard",
+            "price": 450.00,
+            "description": "Used shortboard, great for advanced surfers tackling larger waves. Some minor dings, fully repaired",
+            "image": "boards/ClassicShortboard.png",
+            "quantity_available": 3
+        },
+        {
+            "name": "Retro Fish",
+            "type": "Fish",
+            "price": 400.00,
+            "description": "Vintage fish surfboard, ideal for small to medium waves. Very good condition",
+            "image": "boards/RetroFish.png",
+            "quantity_available": 5
+        },
+        {
+            "name": "Hybrid Funboard",
+            "type": "Funboard",
+            "price": 480.00,
+            "description": "A versatile funboard, suitable for a wide range of wave sizes. Excellent for intermediate surfers",
+            "image": "boards/HybridFunboard.png",
+            "quantity_available": 4
+        },
+        {
+            "name": "Big Wave Gun",
+            "type": "Gun",
+            "price": 600.00,
+            "description": "Designed for big wave surfing. Long, sleek, and fast. IN excellent condition.",
+            "image": "boards/BigWaveGun.png",
+            "quantity_available": 1
+        },
+        {
+            "name": "Sunset Longboard",
+            "type": "Longboard",
+            "price": 550.00,
+            "description": "Gently used longboard, perfect for beginners. Stable and easy to ride",
+            "image": "boards/SunsetLongboard.png",
+            "quantity_available": 2
+        },
+        {
+            "name": "High Performance Board",
+            "type": "Shortboard",
+            "price": 670.00,
+            "description": "High Performance Board for chest to head level swells",
+            "image": "boards/HighPBoard.jpg",
+            "quantity_available": 3
+        }
+
+    ],
+    "accessories": [
+        {
+            "name": "Sticky Bumps Surfwax (Warm)",
+            "type": "Wax",
+            "price": 5.00,
+            "description": "Surf wax for warmer climates",
+            "image": "accessories/StickyBumpWarm.jpg",
+            "quantity_available": 10
+        },
+        {
+            "name": "8ft Leash",
+            "type": "Leash",
+            "price": 25.00,
+            "description": "Surf leash, ideal for 7-9 ft boards",
+            "image": "accessories/Leash.jpg",
+            "quantity_available": 7
+        },
+        {
+            "name": "Airlift Vest",
+            "type": "Safety",
+            "price": 300.00,
+            "description": "Airlift Vest with CO2 cartridges to assist in high swells",
+            "image": "accessories/AirLiftVest.png",
+            "quantity_available": 2
+        },
+        {
+            "name": "Surf Helmet",
+            "type": "Safety",
+            "price": 125.00,
+            "description": "Surf helmet mean't to prevent head trauma in high swells",
+            "image": "accessories/SurfHelmet.jpg",
+            "quantity_available": 7
+        },
+        {
+            "name": "Traction Pad",
+            "type": "Utility",
+            "price": 30.00,
+            "description": "Tail traction pad for grip",
+            "image": "accessories/TractionPad.jpg",
+            "quantity_available": 9
+        },
+        {
+            "name": "GoPro Hero 8",
+            "type": "Camera",
+            "price": 175.00,
+            "description": "Perfect for capturing surf moments, diving videos, etc",
+            "image": "accessories/Gopro.png",
+            "quantity_available": 5
+        }
+        
+    ],
+    "apparel": [
+        {
+            "name": "Men's Wetsuit",
+            "type": "Wetsuit",
+            "price": 110.00,
+            "description": "",
+            "image": "apparel/MensWetSuit.jpg",
+            "quantity_available": 15
+        },
+        {
+            "name": "Women's Wetsuit",
+            "type": "Wetsuit",
+            "price": 110.00,
+            "description": "",
+            "image": "apparel/WomensWetSuit.jpg",
+            "quantity_available": 15
+        },
+        {
+            "name": "Bikini",
+            "type": "Swimwear",
+            "price": 75.00,
+            "description": "",
+            "image": "apparel/Bikini.jpg",
+            "quantity_available": 30
+        },
+        {
+            "name": "Womens's Tee",
+            "type": "Shirt",
+            "price": 25.00,
+            "description": "",
+            "image": "apparel/WomensTee.jpg",
+            "quantity_available": 30
+        },
+        {
+            "name": "Mens's Tee",
+            "type": "Shirt",
+            "price": 25.00,
+            "description": "",
+            "image": "apparel/MensTee.jpg",
+            "quantity_available": 30
+        },
+        {
+            "name": "Boardshorts",
+            "type": "Swimwear",
+            "price": 75.00,
+            "description": "",
+            "image": "apparel/Boardshorts.jpg",
+            "quantity_available": 30
+        }
+    ]
+
+    
+}
